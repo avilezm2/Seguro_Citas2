@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../style.css">
+        <title>Registro de doctors</title>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/FUQHqOg.png">
+    </head>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+    <body>
+        
+        <!-- Barra superior -->
+        <header>
+            <div class="logo">
+                <img src="https://i.imgur.com/FUQHqOg.png" alt="logo de la compañia">
+                <h2 class="nombre-empresa">Seguro Citas</h2>
+                <h4>Doctor</h4>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="file:///C:/xampp/EL%20XAMPP/htdocs/uabc/Seguro_Citas/Main_principal.html" class="nav-link">Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="form-register">
+            <form id="formulario" action="agregarDoc.php" method="post">
+                <h4>Registro para nuevo doctor</h4>
+                <p>Complete todos los campos</p>
+                <br><br>
+                
+                <!--Nombre completo-->
+                <h1>Nombre(s)</h1>
+                <input class="controls" type="text" name="Nombre" id="nombre" placeholder="Ej: Pepito Alfredo">
+                <h1>Apellido paterno</h1>
+                <input class="controls" type="text" name="Ap" id="ap" placeholder="Apellido paterno">
+                <h1>Apellido materno</h1>
+                <input class="controls" type="text" name="Am" id="am" placeholder="Apellido materno">
+                
+                <h1>Fecha de nacimiento</h1>
+                <input class="controls" type="date" name="Nacimiento" maxlength="30" id="nacimiento" placeholder="Selecciona tu fecha">
+                <h1>Teléfono</h1>
+                <input class="controls" type="number" name="Telefono" maxlength="30" id="telefono" placeholder="Ej: 6461112233">
+                <h1>Correo electrónico</h1>
+                <input class="controls" type="text" name="Correo" maxlength="30" id="correo" placeholder="Ej: pepito@gmail.com">
+
+                <h1>Cedula profesional</h1>
+                <input class="custom-file-upload" type="file" name="Cedula" id="cedula">
+                <h1>Nombre de universidad</h1>
+                <input class="controls" type="text" name="Uni" id="Uni" placeholder="Ej: Universidad Autónoma de Baja California">
+
+                <h1>Nombre de usuario</h1>
+                <input class="controls" type="text" name="User" id="user" placeholder="Ej: Pepito7">
+                <h1>Contraseña nueva</h1>
+                <p>Trata de recordar bien tu contraseña</p>
+                <input class="controls" type="password" name="Pass" id="pass" placeholder="Recuerde bien su contraseña">
+                <button class="btnMostrar" id="toggleButton" type="button" onclick="togglePasswordVisibility()">Mostrar</button>
+                <input class="btnLimpia" type="reset" value="Limpiar espacios">
+                
+                
+                <script>//Botón: Mostrar / Ocultar
+                    function togglePasswordVisibility() {
+                        var contrasenaInput = document.getElementById("pass");
+                        var boton = document.getElementById("toggleButton");
+
+                        if (contrasenaInput.type === "password") {
+                            contrasenaInput.type = "text";
+                            boton.textContent = "Ocultar";
+                            boton.classList.remove("btnMostrar");
+                            boton.classList.add("btnOcultar");
+                        } else {
+                            contrasenaInput.type = "password";
+                            boton.textContent = "Mostrar";
+                            boton.classList.remove("btnOcultar");
+                            boton.classList.add("btnMostrar");
+                        }
+                      }
+                      
+                    </script>
+                <br><br>
+                <h1>Código de verificación</h1>
+                <input class="controls" type="number" name="codigo" id="codigo" required>
+                <input class="botones" type="submit" value="Registrar doctor">
+                
+                <script>//Busca la clave
+                    document.getElementById("formulario").addEventListener("submit", function(event) {
+                      event.preventDefault(); // Previene el envío automático del formulario
+                  
+                      // Obtén el valor de la clave ingresada
+                      var clave = document.getElementById("codigo").value;
+                      
+                      // Realiza una petición AJAX al archivo PHP para validar la clave
+                      var xhr = new XMLHttpRequest();
+                      xhr.open("POST", "validarCodigo.php", true);
+                      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                      xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                          var respuesta = xhr.responseText; // Recibe la respuesta del PHP
+                  
+                          if (respuesta === "codigo_valido") {
+                            // Si la clave es válida, envía el formulario
+                            print(respuesta);
+                            document.getElementById("formulario").submit();
+                          } else {
+                            // Si la clave no es válida, muestra un mensaje de error
+                            alert("Clave incorrecta. Por favor, intenta nuevamente.");
+                          }
+                        }
+                      };
+                      xhr.send("codigo=" + encodeURIComponent(clave)); // Envía la clave al PHP para validación
+                    });
+                  </script>
+                  
+            </form>
+        </section>
+
+        <br> <br>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../style.css" />
+        <title>Inicia sesión como paciente</title>
+        <link rel="icon" type="image/x-icon" href="..\Logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    </head>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+    <body>
+        
+        <!-- Barra superior -->
+        <header>
+            <div class="logo">
+                <img src="..\Logo.png" alt="logo de la compañia">
+                <h2 class="nombre-empresa">Seguro Citas</h2>
+                <h4>Paciente</h4>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="..\Main_principal.html" class="nav-link">Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- INICIAR SESIÓN -->
+        <section class="form-register">
+            <form action="Main_paciente.php" method="post">
+                <h4>¡Bienvenido! Estás iniciando sesión como un paciente previsamente registrado</h4>
+                <input class="btnLimpia" type="reset" value="Limpiar espacios">
+                <br><br>
+                
+                <h1>Usuario</h1>
+                <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre de usuario">
+                <h1>Contraseña</h1>
+                <input class="controls" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                <button class="btnMostrar" id="toggleButton" type="button" onclick="togglePasswordVisibility()">Mostrar</button>
+
+                <script>
+                    function togglePasswordVisibility() {
+                        var contrasenaInput = document.getElementById("pass");
+                        var boton = document.getElementById("toggleButton");
+
+                        if (contrasenaInput.type === "password") {
+                            contrasenaInput.type = "text";
+                            boton.textContent = "Ocultar";
+                            boton.classList.remove("btnMostrar");
+                            boton.classList.add("btnOcultar");
+                        } else {
+                            contrasenaInput.type = "password";
+                            boton.textContent = "Mostrar";
+                            boton.classList.remove("btnOcultar");
+                            boton.classList.add("btnMostrar");
+                        }
+                      }
+                      
+                    </script>
+                <br><br>
+                <input class="botones" type="button" onclick="location.href='Main_paciente.php'" value="Iniciar sesión">
+            </form>
+        </section>
+
+        <br> <br>
+        <br> <br>
+
+        <!-- --REGISTRARSE-- -->
+        <section class="form-register">
+            <form action="formRegistroPaciente.html" method="post">
+                <h4>¿No estás registrado?</h4>
+                <br><br>
+
+                <input class="botones" type="submit" value="Registrate">
+            </form>
+        </section>
+
+        <br> <br>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+
+    </body>
+</html>

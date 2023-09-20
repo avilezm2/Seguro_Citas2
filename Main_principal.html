@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title> Seguro Citas </title>
+        <link rel="icon" type="image/x-icon" href="Logo.png">
+    </head>
+    
+    <body>
+
+        <!-- Barra superior -->
+        <header>
+            <div class="logo">
+                <img src="Logo.png" alt="logo de la compañia">
+                <h2 class="nombre-empresa">Seguro Citas</h2>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="Main_principal.html" class="nav-link">Inicio</a></li>
+                    <li><a href="about.html" class="nav-link">Sobre nosotros</a></li>
+                    <li><a href="doctor/inicioSesionDoc.html" class="nav-link">Inicia como doctor</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--Presentación-->
+        <section class="form-register">
+            <form action="">
+                <h2 style="text-align: center;">
+                    <img src="Logo.png" width="200" length="200">
+                </h2>
+                <h4 style="text-align: center;">
+                    SEGURO CITAS
+                </h4>
+            </form>
+        </section>
+
+        <div class="column">
+            <!--INICIAR SESIÓN-->
+            <section class="form-register">
+                <form action="" method="post">
+                    <h4>Inicie sesión:</h4>
+                    <input class="botones" type="button" onclick="location.href='paciente/inicioSesionPaciente.html'" value="Iniciar sesión">
+                </form>
+            </section>
+
+            <!--REGISTRARSE-->
+            <section class="form-register">
+                <form action="" method="post">
+                    <h4>¿No tienes cuenta?</h4>
+
+                    <input class="botones" type="button" onclick="location.href='paciente/formRegistroPaciente.html'" value="Regístrate gratis">
+                </form>
+            </section>
+        </div>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+
+    </body>
+</html>

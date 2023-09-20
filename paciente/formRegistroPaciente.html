@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../style.css" />
+        <title>Solicitud</title>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/FUQHqOg.png">
+    </head>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+    <body>
+
+        <!-- Barra superior -->
+        <header>
+            <div class="logo">
+                <img src="https://i.imgur.com/FUQHqOg.png" alt="logo de la compañia">
+                <h2 class="nombre-empresa">Seguro Citas</h2>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="file:///C:/xampp/EL%20XAMPP/htdocs/uabc/Seguro_Citas/Main_principal.html" class="nav-link">Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="form-register">
+            <form action="agregarPaciente.php" method="post">
+                <h4>Registrarse como nuevo paciente</h4>
+                <input class="botones" type="reset" value="Limpiar espacios">
+                <br><br>
+                
+                <!--Nombre completo-->
+                <h1>Nombre(s)</h1>
+                <input class="controls" type="text" name="Nombre" id="nombre" placeholder="Ej: Pepito Alfredo">
+                <h1>Apellido paterno</h1>
+                <input class="controls" type="text" name="Ap" id="ap" placeholder="Apellido paterno">
+                <h1>Apellido materno</h1>
+                <input class="controls" type="text" name="Am" id="am" placeholder="Apellido materno">
+
+                <h1>Fecha de nacimiento</h1>
+                <input class="controls" type="date" name="Nacimiento" maxlength="30" id="nacimiento" placeholder="Selecciona tu fecha">
+                <h1>Tipo de sangre</h1>
+                <input class="controls" type="text" name="Sangre" maxlength="30" id="sangre" placeholder="Ej: A+">
+                <h1>Teléfono</h1>
+                <input class="controls" type="number" name="Telefono" maxlength="30" id="telefono" placeholder="Ej: 6461112233">
+                <h1>Correo electrónico</h1>
+                <input class="controls" type="text" name="Correo" maxlength="30" id="correo" placeholder="Ej: pepito@gmail.com">
+                <h1>Usuario</h1>
+                <input class="controls" type="text" name="User" id="user" placeholder="Ej: Pepito8">
+                <p>Trata de recordar bien tu contraseña</p>
+                <input class="controls" type="password" name="Pass" id="pass" placeholder="Recuerde bien su contraseña">
+                <button class="btnMostrar" id="toggleButton" type="button" onclick="togglePasswordVisibility()">Mostrar</button>
+                <input class="btnLimpia" type="reset" value="Limpiar espacios">
+                <script>
+                    function togglePasswordVisibility() {
+                        var contrasenaInput = document.getElementById("pass");
+                        var boton = document.getElementById("toggleButton");
+
+                        if (contrasenaInput.type === "password") {
+                            contrasenaInput.type = "text";
+                            boton.textContent = "Ocultar";
+                            boton.classList.remove("btnMostrar");
+                            boton.classList.add("btnOcultar");
+                        } else {
+                            contrasenaInput.type = "password";
+                            boton.textContent = "Mostrar";
+                            boton.classList.remove("btnOcultar");
+                            boton.classList.add("btnMostrar");
+                        }
+                      }
+                      
+                    </script>
+                <br><br>
+
+                <input class="botones" type="submit" value="Enviar solicitud médica">
+            </form>
+        </section>
+
+        <br> <br>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Solicitud</title>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/FUQHqOg.png">
+    </head>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+    <body>
+
+        <section class="form-register">
+            <form action="agregar.php" method="post">
+                <input class="botonesPeques" type="button" onclick="location.href='Main_user.html'" value="Regresar al inicio">
+                <h4>Nueva solicitud</h4>
+                <input class="botones" type="reset" value="Limpiar espacios">
+                <br><br>
+                
+                <!--Nombre completo-->
+                <h1>Nombre(s)</h1>
+                <input class="controls" type="text" name="Nombre" id="nombre" placeholder="Ej: Pepito Alfredo">
+                <h1>Apellido paterno</h1>
+                <input class="controls" type="text" name="Ap" id="ap" placeholder="Apellido paterno">
+                <h1>Apellido materno</h1>
+                <input class="controls" type="text" name="Am" id="am" placeholder="Apellido materno">
+
+                <h1>Fecha de nacimiento</h1>
+                <input class="controls" type="date" name="Nacimiento" maxlength="30" id="nacimiento" placeholder="Selecciona tu fecha">
+                <h1>Tipo de sangre</h1>
+                <input class="controls" type="text" name="Sangre" maxlength="30" id="sangre" placeholder="Ej: A+">
+                <h1>Teléfono</h1>
+                <input class="controls" type="number" name="Telefono" maxlength="30" id="telefono" placeholder="Ej: 6461112233">
+                <h1>Correo electrónico</h1>
+                <input class="controls" type="text" name="Correo" maxlength="30" id="correo" placeholder="Ej: pepito@gmail.com">
+                <h1>Describa su situación</h1>
+                <textarea class="controls" type="text" name="Descripcion" maxlength="300" id="descrip" placeholder="Escriba aquí..." rows="8" cols="50"></textarea>
+
+                <br><br>
+
+                <input class="botones" type="submit" value="Enviar solicitud médica">
+            </form>
+        </section>
+
+        <br> <br>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+
+    </body>
+</html>
